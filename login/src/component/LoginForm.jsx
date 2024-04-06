@@ -5,11 +5,11 @@ import axios from "axios";// Library for making HTTP requests
 // Loginform component
 const LoginForm = () => {
 
-// State variables
+  // State variables
   const [username, setUsername] = useState("");// Stores the entered username
   const [password, setPassword] = useState("");// Stores the entered password
 
- // `handleSubmit` function
+  // `handleSubmit` function
   const handleSubmit = (e) => {
     e.preventDefault();// Prevent default form submission
 
@@ -30,25 +30,35 @@ const LoginForm = () => {
   return (
     <div className="login-form">
       <div className="username">
-        <label htmlFor="username">Username:</label>
+        <label className="user" htmlFor="username">Username:</label>
         <input
           type="text"
           id="username"
+          // placeholder="Your Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
       <div className="password">
-        <label htmlFor="password">Password:</label>
+        <label className="pass" htmlFor="password">Password:</label>
         <input
           type="password"
           id="password"
+          // placeholder="Your Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <button className="login-button" type="submit" onClick={handleSubmit}>Login
+      <button className="login-button" type="submit" onClick={handleSubmit}>
+        Login
       </button>
+      <div id="additional-links">
+        <p>Did you forget your password?</p>
+        <div className="reset-create">
+          <a href="#" title="reser password">Reset password</a>
+          <a href="signup.html" title="create-account">Create Account</a>
+        </div>
+      </div>
     </div>
   );
 };

@@ -44,3 +44,19 @@
 .login-button{
   margin: 10px;
 }
+
+.password,
+.username{
+  display: flex;
+  flex-direction: column;
+}
+
+.pass,
+.user{
+  justify-content:left;
+}
+
+.reset-create{
+  display: flex;
+  flex-direction: column;
+}
