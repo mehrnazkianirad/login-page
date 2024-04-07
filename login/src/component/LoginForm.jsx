@@ -10,20 +10,25 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");// Stores the entered password
 
   // `handleSubmit` function
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();// Prevent default form submission
 
-    const response = axios.post("/api/login", {// Send a POST request to the `/api/login` endpoint
-      username,
-      password,
-    });
-
-    if (response.status === 200) {// Check if the response status is 200 (success)
-      window.location.href = "/home";// Redirect to the `/home` page
-
-    } else {// If the response status is not 200
-
-      alert("Invalid username or password")// Display an error message
+    try{
+      const response = axios.post("/api/login", {// Send a POST request to the `/api/login` endpoint
+        username,
+        password,
+      });
+  
+      if (response.status === 200) {// Check if the response status is 200 (success)
+        window.location.href = "/home";// Redirect to the `/home` page
+  
+      } else {// If the response status is not 200
+  
+        alert("Invalid username or password")// Display an error message
+      }
+    } catch(error){
+      console.error("Error during login", error);
+      alert("An error has occurred. Please try again later")
     }
   };
 
@@ -56,7 +61,7 @@ const LoginForm = () => {
         <p>Did you forget your password?</p>
         <div className="reset-create">
           <a href="#" title="reser password">Reset password</a>
-          <a href="signup.html" title="create-account">Create Account</a>
+          <a href="Signup.jsx" title="create-account">Create Account</a>
         </div>
       </div>
     </div>
